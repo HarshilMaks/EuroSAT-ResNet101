@@ -3,7 +3,7 @@ import torch.nn as nn
 from torchvision.models import resnet50, ResNet50_Weights
 
 #Create a ResNet50 model for classification
-def get_resnet50(num_classes, pretrained=True, freeze_backbone=True):
+def get_resnet50(num_classes: int, pretrained: bool = True, freeze_backbone: bool = True) -> nn.Module:
     if pretrained:
         model = resnet50(weights=ResNet50_Weights.DEFAULT)
     else:
