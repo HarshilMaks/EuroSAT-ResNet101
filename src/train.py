@@ -15,8 +15,12 @@ val_data = torch.load("data/processed/val.pt")
 
 # Wrap the dataset  
 batch_size=32
-train_dataloader = DataLoader(train_data, batch_size=batch_size, shuffle=True)
-val_dataloader = DataLoader(val_data, batch_size=batch_size, shuffle=False)
+data = torch.load("data/processed/train.pt")
+# assert shape & dtype
+images, labels = data["images"], data["labels"]
+from torch.utils.data import TensorDataset
+train_dataset = TensorDataset(images, labels.long())
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, num_workers=4, pin_memory=True)
 
 
 # Model Initialization
@@ -26,38 +30,40 @@ model = model.to(device)
 
 # Loss and Optimizer functions
 getloss = nn.CrossEntropyLoss()
-
 optimizer = optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-3)
-
 scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
 
-# Fix: Remove torch.no_grad from accuracy function
+
+# Accuracy Function
 def calculate_accuracy(predictions: torch.Tensor, true_labels: torch.Tensor) -> float:
     predicted_classes = predictions.argmax(dim=1)
     correct = (predicted_classes == true_labels).sum().item()
     total = true_labels.size(0)
     return correct / total if total > 0 else 0.0
 
+from tqdm import tqdm
 # Training Loop
-def train_batch(x: torch.Tensor, y: torch.Tensor, model: nn.Module, optimizer: optim.Optimizer, getloss: nn.Module):
-    model.train()
-    optimizer.zero_grad()
-    prediction = model(x)
-    batch_train_loss = getloss(prediction, y)
-    batch_train_loss.backward()
-    optimizer.step()
-    acc = calculate_accuracy(prediction, y)
-    return batch_train_loss.item(), acc
+for images, labels in tqdm(train_dataloader, desc=f"Epoch {epoch} Training"):
+    def train_batch(x: torch.Tensor, y: torch.Tensor, model: nn.Module, optimizer: optim.Optimizer, getloss: nn.Module):
+        model.train()
+        optimizer.zero_grad()
+        prediction = model(x)
+        batch_train_loss = getloss(prediction, y)
+        batch_train_loss.backward()
+        optimizer.step()
+        acc = calculate_accuracy(prediction, y)
+        return batch_train_loss.item(), acc
 
 
 # Validation Loop
-def validate_batch(x: torch.Tensor, y: torch.Tensor, model: nn.Module, getloss: nn.Module):
-    model.eval()
-    with torch.no_grad():
-        evaluation = model(x)
-        batch_eval_loss = getloss(evaluation, y)
-        acc = calculate_accuracy(evaluation, y)
-    return batch_eval_loss.item(), acc
+for images, labels in tqdm(val_dataloader, desc=f"Epoch {epoch} Validation"):
+    def validate_batch(x: torch.Tensor, y: torch.Tensor, model: nn.Module, getloss: nn.Module):
+        model.eval()
+        with torch.no_grad():
+            evaluation = model(x)
+            batch_eval_loss = getloss(evaluation, y)
+            acc = calculate_accuracy(evaluation, y)
+        return batch_eval_loss.item(), acc
 
 
 def train(num_epochs: int = 10, save_path: str = "artifacts/best_model.pth"):
@@ -104,6 +110,7 @@ def train(num_epochs: int = 10, save_path: str = "artifacts/best_model.pth"):
 
         # Save best
         if val_acc > best_val_acc:
+            
             best_val_acc = val_acc
             torch.save({
                 "model_state_dict": model.state_dict(),
@@ -112,8 +119,7 @@ def train(num_epochs: int = 10, save_path: str = "artifacts/best_model.pth"):
                 "val_acc": val_acc,
             }, save_path)
             print(f"Saved new best model with val_acc={val_acc:.4f} to {save_path}")
-
-
+    
 if __name__ == "__main__":
     train()
  
