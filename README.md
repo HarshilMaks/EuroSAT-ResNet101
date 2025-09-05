@@ -1,3 +1,6 @@
+<div align="center">
+  <img src="https://github.com/HarshilMaks/EuroSAT-ResNet50/blob/main/EuroSAT_sample.jpg?raw=true" alt="Geospatial Analysis for Enterprise" width="600"/>
+
   # Geo-AI Engine for Automated ESG & Supply Chain Monitoring
 
   **A high-performance geospatial intelligence engine designed to help enterprises de-risk their global supply chains, automate environmental compliance reporting, and monitor critical assets in near real-time. This system utilizes a fine-tuned ResNet-50 model to achieve ~94% accuracy in land use classification from satellite imagery.**
@@ -5,7 +8,6 @@
   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
   [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
   [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white)](https://pytorch.org/)
-  [![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker&logoColor=white)](https://www.docker.com/)
 
 </div>
 
@@ -61,7 +63,6 @@ This engine is designed to be integrated into a larger enterprise monitoring sys
 *   Python 3.8+
 *   PyTorch, Torchvision
 *   NumPy, Matplotlib
-*   Docker (Recommended)
 
 ### Installation
 1.  **Clone the Repository**
