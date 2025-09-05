@@ -106,15 +106,15 @@ graph TD
 
 ### Dataset Preview
 
-![EuroSAT Dataset](assets/dataset_preview.png)
+![EuroSAT Dataset](assets/eurosat_rgb_preview.png)
 
 ### Confusion Matrix
 
-![Confusion Matrix](assets/confusion_matrix.png)
+![Confusion Matrix](assets/eurosat_rgb_confusion_matrix.png)
 
 ### Sample Predictions
 
-![Predictions](assets/sample_predictions.png)
+![Predictions](assets/eurosat_rgb_predictions.png)
 
 ---
 
