@@ -63,6 +63,7 @@ Manual monitoring is not scalable. This project demonstrates a **Geo-AI engine**
 
 ## 2. Enterprise Workflow
 
+```mermaid
 graph TD
     A["1. Define AOIs (GeoJSON/KML)"] --> B{"2. Automated Satellite Data Ingestion"}
     B -->|"Sentinel-2, Planet, etc."| C["3. Core Analysis: Geo-AI Engine"]
@@ -72,6 +73,7 @@ graph TD
     E -->|"No"| G["6b. Log for Audit"]
     F --> H["Risk Dashboard"]
     G --> I["Compliance & ESG Reports"]
+```
 ---
 
 ## 3. Technical Architecture
