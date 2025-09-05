@@ -5,7 +5,6 @@
   [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
   [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
   [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white)](https://pytorch.org/)
-  [![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker&logoColor=white)](https://www.docker.com/)
 
 </div>
 
@@ -61,7 +60,6 @@ This engine is designed to be integrated into a larger enterprise monitoring sys
 *   Python 3.8+
 *   PyTorch, Torchvision
 *   NumPy, Matplotlib
-*   Docker (Recommended)
 
 ### Installation
 1.  **Clone the Repository**
