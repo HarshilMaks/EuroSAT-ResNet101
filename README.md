@@ -1,10 +1,7 @@
 <p align="center"><h1 align="center">EUROSAT-RESNET50</h1></p>
-<p align="center">
-	<em><code>❯ REPLACE-ME</code></em>
-</p>
-<p align="center">
+<p align="center"><h2>
 	<em>Geo-AI Engine for ESG & Supply Chain Monitoring using ResNet-50 on EuroSAT</em>
-</p>
+</h2></p>
 
 <p align="center">
 	<img src="https://img.shields.io/github/license/HarshilMaks/EuroSAT-ResNet50?style=flat&logo=opensourceinitiative&logoColor=white&color=0062ff" alt="license">
