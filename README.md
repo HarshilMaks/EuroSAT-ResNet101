@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/phelber/EuroSAT">
-    <img src="https://i.imgur.com/k6KdhfH.jpeg" alt="EuroSAT Banner" width="800"/>
+    <img src="https://github.com/HarshilMaks/EuroSAT-ResNet50/blob/main/EuroSAT_sample.jpg?raw=true" alt="EuroSAT Sample Images" width="800"/>
   </a>
 
   # Geo-AI Engine for Automated ESG & Supply Chain Monitoring
@@ -54,14 +54,8 @@ The 10 classes represent critical land cover types for ESG and supply chain anal
 *   `River` / `SeaLake`: Monitors water levels for flood risk assessment.
 *   `Industrial` / `Residential`: Tracks encroachment on protected lands.
 
-<div align="center">
-  <img src="https://i.imgur.com/KPGDSoA.jpeg" alt="Sample EuroSAT Images" width="700"/>
-  <br>
-  <em>Example images from the EuroSAT dataset, showcasing class diversity.</em>
-</div>
-
 ### Performance Enhancement: Data Augmentation
-To improve model generalization and robustness against variations in satellite imagery (e.g., different angles, seasons, and atmospheric conditions), data augmentation is employed. As demonstrated by recent research on this exact dataset ([Adedeji et al., 2022](https://arxiv.org/abs/2207.14580)), augmentation is a critical step. Our approach uses geometric augmentations, a proven technique for enhancing performance in satellite image analysis.
+To improve model generalization and robustness against variations in satellite imagery, data augmentation is employed. As demonstrated by recent research on this exact dataset ([Adedeji et al., 2022](https://arxiv.org/abs/2207.14580)), augmentation is a critical step. Our approach uses geometric augmentations, a proven technique for enhancing performance in satellite image analysis.
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/satellite-image-deep-learning/techniques/main/augmentation/figures/geometric.png" alt="Data Augmentation" width="500"/>
@@ -85,7 +79,7 @@ For a detailed analysis, a confusion matrix should be generated to evaluate clas
 ## 5. Getting Started
 
 ### Prerequisites
-This project requires Python 3.8+ and the following core libraries. The `requirements.txt` file is the source of truth for the necessary packages.
+This project requires Python 3.8+ and several core libraries. Ensure your environment is set up with the following:
 
 *   **PyTorch & Torchvision:** For model creation and training.
 *   **NumPy:** For numerical operations.
@@ -103,7 +97,7 @@ This project requires Python 3.8+ and the following core libraries. The `require
     [Kaggle: EuroSAT Dataset](https://www.kaggle.com/datasets/raoofnaushad/eurosat-sentinel2-dataset)
 
 3.  **Install Dependencies**
-    Create a virtual environment and install the required packages:
+    It is highly recommended to use a virtual environment.
     ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
