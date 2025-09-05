@@ -1,5 +1,7 @@
-# EUROSAT-RESNET50
-
+<p align="center"><h1 align="center">EUROSAT-RESNET50</h1></p>
+<p align="center">
+	<em><code>❯ REPLACE-ME</code></em>
+</p>
 <p align="center">
 	<em>Geo-AI Engine for ESG & Supply Chain Monitoring using ResNet-50 on EuroSAT</em>
 </p>
@@ -25,29 +27,28 @@
 
 ## Quick Links
 
-- [EUROSAT-RESNET50](#eurosat-resnet50)
-  - [Quick Links](#quick-links)
-  - [1. Business Problem: Opaque Supply Chains and ESG Pressure](#1-business-problem-opaque-supply-chains-and-esg-pressure)
-  - [2. Enterprise Workflow](#2-enterprise-workflow)
-  - [3. Technical Architecture](#3-technical-architecture)
-  - [4. Experiments \& Evaluation](#4-experiments--evaluation)
-    - [Dataset Preview](#dataset-preview)
-    - [Confusion Matrix](#confusion-matrix)
-    - [Sample Predictions](#sample-predictions)
-  - [5. Business Value](#5-business-value)
-  - [6. Use Cases](#6-use-cases)
-  - [7. Project Structure](#7-project-structure)
-  - [8. Getting Started](#8-getting-started)
-  - [Dataset Download](#dataset-download)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Testing](#testing)
-  - [9. Project Roadmap](#9-project-roadmap)
-  - [10. Contributing](#10-contributing)
-  - [11. License](#11-license)
-  - [12. Acknowledgments](#12-acknowledgments)
+- [Quick Links](#quick-links)
+- [1. Business Problem: Opaque Supply Chains and ESG Pressure](#1-business-problem-opaque-supply-chains-and-esg-pressure)
+- [2. Enterprise Workflow](#2-enterprise-workflow)
+- [3. Technical Architecture](#3-technical-architecture)
+- [4. Experiments \& Evaluation](#4-experiments--evaluation)
+  - [Dataset Preview](#dataset-preview)
+  - [Confusion Matrix](#confusion-matrix)
+  - [Sample Predictions](#sample-predictions)
+- [5. Business Value](#5-business-value)
+- [6. Use Cases](#6-use-cases)
+- [7. Project Structure](#7-project-structure)
+- [8. Getting Started](#8-getting-started)
+- [Dataset Download](#dataset-download)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Testing](#testing)
+- [9. Project Roadmap](#9-project-roadmap)
+- [10. Contributing](#10-contributing)
+- [11. License](#11-license)
+- [12. Acknowledgments](#12-acknowledgments)
 
 ---
 
