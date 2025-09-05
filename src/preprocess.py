@@ -45,10 +45,24 @@ class GetDataLoaders(DataLoader):
         val_size = len(euro_dataset) - train_size
         train_dataset, val_dataset = random_split(euro_dataset, [train_size, val_size])
 
-        # Save processed splits
+        # Materialize datasets into batched tensors and save
         os.makedirs("data/processed", exist_ok=True)
-        torch.save(train_dataset, "data/processed/train.pt")
-        torch.save(val_dataset, "data/processed/val.pt")
+
+        def to_tensor_dict(ds, batch_size=256):
+            loader = DataLoader(ds, batch_size=batch_size, shuffle=False, num_workers=4)
+            imgs, labs = [], []
+            for x, y in loader:
+                imgs.append(x)
+                labs.append(y)
+            images = torch.cat(imgs, dim=0)
+            labels = torch.cat(labs, dim=0).long()
+            return {"images": images, "labels": labels}
+
+        train_tensors = to_tensor_dict(train_dataset)
+        val_tensors = to_tensor_dict(val_dataset)
+
+        torch.save(train_tensors, "data/processed/train.pt")
+        torch.save(val_tensors, "data/processed/val.pt")
 
         print("Preprocessing complete. Datasets saved in data/processed/")
 
