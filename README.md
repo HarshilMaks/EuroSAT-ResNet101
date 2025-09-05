@@ -1,6 +1,3 @@
-Of course. Here is the entire README you provided, presented as a single markdown code block so you can easily copy and paste it into your `README.md` file.
-
-```markdown
 # EUROSAT-RESNET50
 
 <p align="center">
@@ -28,18 +25,29 @@ Of course. Here is the entire README you provided, presented as a single markdow
 
 ## Quick Links
 
-* [Business Problem](#1-business-problem)
-* [Enterprise Workflow](#2-enterprise-workflow)
-* [Technical Architecture](#3-technical-architecture)
-* [Experiments & Evaluation](#4-experiments--evaluation)
-* [Business Value](#5-business-value)
-* [Use Cases](#6-use-cases)
-* [Project Structure](#7-project-structure)
-* [Getting Started](#8-getting-started)
-* [Project Roadmap](#9-project-roadmap)
-* [Contributing](#10-contributing)
-* [License](#11-license)
-* [Acknowledgments](#12-acknowledgments)
+- [EUROSAT-RESNET50](#eurosat-resnet50)
+  - [Quick Links](#quick-links)
+  - [1. Business Problem: Opaque Supply Chains and ESG Pressure](#1-business-problem-opaque-supply-chains-and-esg-pressure)
+  - [2. Enterprise Workflow](#2-enterprise-workflow)
+  - [3. Technical Architecture](#3-technical-architecture)
+  - [4. Experiments \& Evaluation](#4-experiments--evaluation)
+    - [Dataset Preview](#dataset-preview)
+    - [Confusion Matrix](#confusion-matrix)
+    - [Sample Predictions](#sample-predictions)
+  - [5. Business Value](#5-business-value)
+  - [6. Use Cases](#6-use-cases)
+  - [7. Project Structure](#7-project-structure)
+  - [8. Getting Started](#8-getting-started)
+  - [Dataset Download](#dataset-download)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Testing](#testing)
+  - [9. Project Roadmap](#9-project-roadmap)
+  - [10. Contributing](#10-contributing)
+  - [11. License](#11-license)
+  - [12. Acknowledgments](#12-acknowledgments)
 
 ---
 
@@ -263,4 +271,3 @@ This project is licensed under the [Apache 2.0 License](LICENSE).
 
 *  Our methodology is informed by recent advancements in data augmentation for satellite imagery, as explored in:
     > O. Adedeji, P. Owoade, O. Ajayi, O. Arowolo, "Image Augmentation for Satellite Images," arXiv preprint arXiv:2207.14580, 2022.
-```
