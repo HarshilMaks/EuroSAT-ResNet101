@@ -94,15 +94,16 @@ graph TD
 
 * **Training Setup**:
 
-  * Optimizer: Adam, lr=1e-4
-  * Batch Size: 64
-  * Epochs: 25
+  * Optimizer: Adam (lr=1e-4)
+  * Batch Size: 32
+  * Epochs: 20
 
 * **Results**:
-
-  * Accuracy: \~97%
-  * F1 Score: 0.96
-  * Confusion Matrix shows strong separation between agricultural and urban classes.
+  * Validation Accuracy: \~94.75%
+  * F1 Score: ~0.95
+  * 
+* **Analysis**:
+  * The model achieved strong performance through efficient fine-tuning, training only 4.3% of parameters. The confusion matrix shows excellent class separation, particularly between agricultural and urban categories, with minimal misclassification.
 
 ### Dataset Preview
 

@@ -81,7 +81,7 @@ def validate_batch(x: torch.Tensor, y: torch.Tensor, model: nn.Module, criterion
     return loss.item(), preds_cpu, labels_cpu
 
 
-def train(num_epochs: int = 10, save_path: str = "artifacts/best_model.pth", patience: int = 5):
+def train(num_epochs: int = 20, save_path: str = "artifacts/best_model.pth", patience: int = 5):
     best_val_acc = 0.0
     patience_counter = 0
     os.makedirs("artifacts", exist_ok=True)
