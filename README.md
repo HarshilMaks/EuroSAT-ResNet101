@@ -1,13 +1,13 @@
-<p align="center"><h1 align="center">EUROSAT-RESNET50</h1></p>
+<p align="center"><h1 align="center">EUROSAT-ResNet101</h1></p>
 <p align="center">
 	<em>Geo-AI Engine for ESG & Supply Chain Monitoring using ResNet-50 on EuroSAT</em>
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/github/license/HarshilMaks/EuroSAT-ResNet50?style=flat&logo=opensourceinitiative&logoColor=white&color=0062ff" alt="license">
-	<img src="https://img.shields.io/github/last-commit/HarshilMaks/EuroSAT-ResNet50?style=flat&logo=git&logoColor=white&color=0062ff" alt="last-commit">
-	<img src="https://img.shields.io/github/languages/top/HarshilMaks/EuroSAT-ResNet50?style=flat&color=0062ff" alt="repo-top-language">
-	<img src="https://img.shields.io/github/languages/count/HarshilMaks/EuroSAT-ResNet50?style=flat&color=0062ff" alt="repo-language-count">
+	<img src="https://img.shields.io/github/license/HarshilMaks/EuroSAT-ResNet101?style=flat&logo=opensourceinitiative&logoColor=white&color=0062ff" alt="license">
+	<img src="https://img.shields.io/github/last-commit/HarshilMaks/EuroSAT-ResNet101?style=flat&logo=git&logoColor=white&color=0062ff" alt="last-commit">
+	<img src="https://img.shields.io/github/languages/top/HarshilMaks/EuroSAT-ResNet101?style=flat&color=0062ff" alt="repo-top-language">
+	<img src="https://img.shields.io/github/languages/count/HarshilMaks/EuroSAT-ResNet101?style=flat&color=0062ff" alt="repo-language-count">
 </p>
 
 <p align="center">Built with:</p>
@@ -143,7 +143,7 @@ This system provides:
 ## 7. Project Structure
 
 ```
-└── EuroSAT-ResNet50/
+└── EuroSAT-ResNet101/
     ├── Dockerfile
     ├── LICENSE
     ├── Makefile
@@ -192,15 +192,15 @@ The RGB version of the dataset is available from multiple sources. We recommend 
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/HarshilMaks/EuroSAT-ResNet50
-cd EuroSAT-ResNet50
+git clone https://github.com/HarshilMaks/EuroSAT-ResNet101
+cd EuroSAT-ResNet101
 pip install -r requirements.txt
 ```
 
 Using Docker:
 
 ```bash
-docker build -t eurosat-resnet50 .
+docker build -t eurosat-ResNet101 .
 ```
 
 ### Usage
@@ -214,7 +214,7 @@ python src/main.py
 Using Docker:
 
 ```bash
-docker run -it eurosat-resnet50
+docker run -it eurosat-ResNet101
 ```
 
 ### Testing
@@ -239,9 +239,9 @@ pytest
 
 ## 10. Contributing
 
-* [Join Discussions](https://github.com/HarshilMaks/EuroSAT-ResNet50/discussions)
-* [Report Issues](https://github.com/HarshilMaks/EuroSAT-ResNet50/issues)
-* [Submit Pull Requests](https://github.com/HarshilMaks/EuroSAT-ResNet50/pulls)
+* [Join Discussions](https://github.com/HarshilMaks/EuroSAT-ResNet101/discussions)
+* [Report Issues](https://github.com/HarshilMaks/EuroSAT-ResNet101/issues)
+* [Submit Pull Requests](https://github.com/HarshilMaks/EuroSAT-ResNet101/pulls)
 
 Steps:
 

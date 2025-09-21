@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 import os
-from model import get_resnet50
+from model import get_resnet101
 from typing import Any, Optional
 
 # Setup the device for GPU usage if active
@@ -24,7 +24,7 @@ val_dataset = TensorDataset(val_data["images"], val_data["labels"].long())
 val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=2, pin_memory=True)
 
 # Model Initialization
-model: nn.Module = get_resnet50(num_classes=10, pretrained=True, freeze_backbone=True)
+model: nn.Module = get_resnet101(num_classes=10, pretrained=True, freeze_backbone=True)
 model = model.to(device)
 print(f"Model loaded on {device}")
 print(f"Total parameters: {sum(p.numel() for p in model.parameters()):,}")

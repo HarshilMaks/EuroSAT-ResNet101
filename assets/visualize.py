@@ -7,7 +7,7 @@ import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-from src.model import get_resnet50  # your model.py function
+from src.model import get_resnet101  # your model.py function
 from datasets import load_from_disk
 from PIL import Image
 
@@ -117,7 +117,7 @@ def plot_confusion_matrix(model, loader, save_path="assets/eurosat_rgb_confusion
 # Load Model
 # =========================
 def load_model(model_path, num_classes):
-    model = get_resnet50(num_classes=num_classes, pretrained=False, freeze_backbone=False)
+    model = get_resnet101(num_classes=num_classes, pretrained=False, freeze_backbone=False)
     checkpoint = torch.load(model_path, map_location=device)
     if "model_state_dict" in checkpoint:
         state_dict = checkpoint["model_state_dict"]
