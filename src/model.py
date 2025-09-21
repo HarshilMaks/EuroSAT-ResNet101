@@ -9,7 +9,7 @@ class BasicConv2d(nn.Module):
     """Basic convolution block with batch normalization."""
     
     def __init__(self, in_channels: int, out_channels: int, kernel_size: int, 
-                 stride: int = 1, padding: int = 0, bias: bool = False):
+                stride: int = 1, padding: int = 0, bias: bool = False):
         super(BasicConv2d, self).__init__()
         self.conv = nn.Conv2d(
             in_channels=in_channels, 
@@ -32,7 +32,7 @@ class Bottleneck(nn.Module):
     expansion = 4
     
     def __init__(self, in_channels: int, channels: int, stride: int = 1, 
-                 downsample: Optional[nn.Module] = None):
+                downsample: Optional[nn.Module] = None):
         super(Bottleneck, self).__init__()
         
         self.conv1 = BasicConv2d(in_channels, channels, kernel_size=1)
@@ -107,7 +107,7 @@ class ResNet101(nn.Module):
         if stride != 1 or self.in_channels != channels * Bottleneck.expansion:
             downsample = nn.Sequential(
                 nn.Conv2d(self.in_channels, channels * Bottleneck.expansion, 
-                         kernel_size=1, stride=stride, bias=False),
+                        kernel_size=1, stride=stride, bias=False),
                 nn.BatchNorm2d(channels * Bottleneck.expansion),
             )
         
@@ -153,11 +153,18 @@ class ResNet101(nn.Module):
 
 
 def get_resnet101(num_classes: int, dropout_rate: float = 0.2, 
-                  hidden_size: int = 512, freeze_backbone: bool = False) -> ResNet101:
-    """Create ResNet-101 model for classification."""
-    
+                hidden_size: int = 512, freeze_backbone: bool = False, weights=None) -> ResNet101:
+    """
+    Create ResNet-101 model for classification.
+    'weights' is ignored because this implementation is from scratch.
+    Kept only for API compatibility with torchvision.
+    """
+    if weights is not None:
+        print("⚠️ Warning: This is a custom ResNet101 implementation. "
+            "The 'weights' argument is ignored (no pretrained weights).")
+
     model = ResNet101(num_classes, dropout_rate, hidden_size)
-    
+
     if freeze_backbone:
         for name, param in model.named_parameters():
             if not name.startswith('classifier'):
@@ -165,9 +172,8 @@ def get_resnet101(num_classes: int, dropout_rate: float = 0.2,
         print("Backbone frozen. Only classifier will be trained.")
     else:
         print("Full ResNet-101 model will be trained.")
-    
-    return model
 
+    return model
 
 def get_model_info(model: nn.Module) -> Tuple[int, int]:
     """Get model parameter information."""
