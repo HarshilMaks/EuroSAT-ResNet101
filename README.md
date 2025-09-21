@@ -4,10 +4,10 @@
 </p>
 
 <p align="center">
-	<img src="https://img.shields.io/github/license/HarshilMaks/EuroSAT-ResNet101?style=flat&logo=opensourceinitiative&logoColor=white&color=0062ff" alt="license">
-	<img src="https://img.shields.io/github/last-commit/HarshilMaks/EuroSAT-ResNet101?style=flat&logo=git&logoColor=white&color=0062ff" alt="last-commit">
-	<img src="https://img.shields.io/github/languages/top/HarshilMaks/EuroSAT-ResNet101?style=flat&color=0062ff" alt="repo-top-language">
-	<img src="https://img.shields.io/github/languages/count/HarshilMaks/EuroSAT-ResNet101?style=flat&color=0062ff" alt="repo-language-count">
+	<img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white&color=0062ff" alt="license">
+	<img src="https://img.shields.io/badge/Language-Python-blue.svg?style=flat&color=0062ff" alt="language">
+	<img src="https://img.shields.io/badge/Status-Active-green.svg?style=flat&color=0062ff" alt="status">
+	<img src="https://img.shields.io/badge/Framework-PyTorch-red.svg?style=flat&color=0062ff" alt="framework">
 </p>
 
 <p align="center">Built with:</p>
