@@ -79,7 +79,7 @@ graph TD
 ## 3. Technical Architecture
 
 <p align="center">
-  <img src="https://huggingface.co/microsoft/resnet-101/resolve/main/pytorch_model.png" alt="ResNet-101 Architecture" width="600">
+  <img src="assets/Images/resnet_architecture.png" width="600">
   <br>
   <em>ResNet-101 Architecture - Deep Residual Learning for Image Recognition</em>
 </p>
