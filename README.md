@@ -25,7 +25,6 @@
 
 ## Quick Links
 
-- [Quick Links](#quick-links)
 - [1. Business Problem: Opaque Supply Chains and ESG Pressure](#1-business-problem-opaque-supply-chains-and-esg-pressure)
 - [2. Enterprise Workflow](#2-enterprise-workflow)
 - [3. Technical Architecture](#3-technical-architecture)
