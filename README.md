@@ -8,6 +8,7 @@
 	<img src="https://img.shields.io/badge/Language-Python-blue.svg?style=flat&color=0062ff" alt="language">
 	<img src="https://img.shields.io/badge/Status-Active-green.svg?style=flat&color=0062ff" alt="status">
 	<img src="https://img.shields.io/badge/Framework-PyTorch-red.svg?style=flat&color=0062ff" alt="framework">
+	<img src="https://img.shields.io/badge/Validation%20Accuracy-82.4%25-brightgreen.svg?style=flat" alt="accuracy">
 </p>
 
 <p align="center">Built with:</p>
@@ -36,8 +37,7 @@
 - [6. Use Cases](#6-use-cases)
 - [7. Project Structure](#7-project-structure)
 - [8. Getting Started](#8-getting-started)
-- [Dataset Download](#dataset-download)
-- [Getting Started](#getting-started)
+  - [Dataset Download](#dataset-download)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -49,15 +49,15 @@
 
 ---
 
-## 1. Business Problem: Opaque Supply Chains and ESG Pressure  
+## 1. Business Problem: Opaque Supply Chains and ESG Pressure
 
-Enterprises today operate in a landscape of growing environmental and regulatory risk:  
+Enterprises today operate in a landscape of growing environmental and regulatory risk:
 
-- **Regulatory Compliance** — Regulations such as the EU Deforestation Regulation require proof that imports (soy, palm oil, coffee, etc.) are not linked to deforestation.  
-- **Investor Scrutiny** — Investors use ESG metrics to evaluate long-term risk. A lack of transparency can impact valuation and funding access.  
-- **Operational Blind Spots** — Companies lack scalable monitoring for upstream risks (e.g., floods, fires, illegal land use), leading to costly disruptions.  
+* **Regulatory Compliance** — Regulations such as the EU Deforestation Regulation require proof that imports (soy, palm oil, coffee, etc.) are not linked to deforestation.
+* **Investor Scrutiny** — Investors use ESG metrics to evaluate long-term risk. A lack of transparency can impact valuation and funding access.
+* **Operational Blind Spots** — Companies lack scalable monitoring for upstream risks (e.g., floods, fires, illegal land use), leading to costly disruptions.
 
-Manual monitoring is not scalable. This project demonstrates a **Geo-AI engine** that enables automated, large-scale environmental intelligence.  
+Manual monitoring is not scalable. This project demonstrates a **Geo-AI engine** that enables automated, large-scale environmental intelligence.
 
 ---
 
@@ -74,6 +74,7 @@ graph TD
     F --> H["Risk Dashboard"]
     G --> I["Compliance & ESG Reports"]
 ```
+
 ---
 
 ## 3. Technical Architecture
@@ -89,11 +90,11 @@ graph TD
 * **Dataset**: EuroSAT (27k labeled images across 10 classes).
 * **Pipeline**:
 
-  * Data ingestion (Sentinel-2).
-  * Preprocessing (resizing, normalization).
-  * Augmentation (random crops, flips, rotations).
-  * Training (PyTorch from scratch implementation).
-  * Evaluation (confusion matrix, accuracy, F1-score).
+  * Data ingestion (Sentinel-2)
+  * Preprocessing (resizing, normalization)
+  * Augmentation (random crops, flips, rotations)
+  * Training (PyTorch from scratch implementation)
+  * Evaluation (confusion matrix, accuracy, F1-score)
 
 ---
 
@@ -101,30 +102,36 @@ graph TD
 
 * **Training Setup**:
 
-  * Optimizer: Adam (lr=1e-3, weight_decay=1e-4)
+  * Optimizer: Adam (lr=1e-3, weight\_decay=1e-4)
   * Batch Size: 32
   * Epochs: 20
-  * Architecture: ResNet-101 with custom classifier (dropout=0.2, hidden_size=512)
+  * Architecture: ResNet-101 with custom classifier (dropout=0.2, hidden\_size=512)
 
 * **Results**:
-  * Validation Accuracy: ~95.2%
-  * F1 Score: ~0.95
-  * Model Size: ~44.5M parameters (only ~5K trainable with frozen backbone)
-  
+
+  * Validation Accuracy: **\~82.4%**
+  * F1 Score: **\~0.82**
+  * Model Size: \~44.5M parameters (only \~5K trainable with frozen backbone)
+
 * **Analysis**:
-  * The ResNet-101 model achieved superior performance through deep residual learning with 101 layers. The confusion matrix shows excellent class separation across all 10 EuroSAT categories, with particularly strong performance on agricultural and urban land use classification.
+  The ResNet-101 model demonstrates solid performance through deep residual learning. The confusion matrix shows good separation across all 10 EuroSAT categories, with strongest accuracy on agricultural and urban land use classes. Misclassifications mainly occur in visually similar categories such as pasture vs. herbaceous vegetation, which is expected given the complexity of satellite imagery.
+
+---
 
 ### Dataset Preview
 
 ![EuroSAT Dataset](assets/eurosat_rgb_preview.png)
+*Sample images from the EuroSAT RGB dataset, covering diverse land use categories.*
 
 ### Confusion Matrix
 
 ![Confusion Matrix](assets/eurosat_rgb_confusion_matrix.png)
+*The confusion matrix illustrates correct and misclassified predictions across all 10 EuroSAT classes. Most misclassifications occur between visually similar land types.*
 
 ### Sample Predictions
 
 ![Predictions](assets/eurosat_rgb_predictions.png)
+*Examples of model predictions on unseen EuroSAT images. The model reliably identifies the majority of classes, with occasional confusion among similar vegetation types.*
 
 ---
 
@@ -132,11 +139,11 @@ graph TD
 
 This system provides:
 
-* **Automated ESG Auditing** — Verifiable supply chain transparency.
-* **Early Warning Signals** — Alerts for deforestation, floods, or encroachment.
-* **Investor Confidence** — Enhances ESG scoring and compliance proof.
-* **Scalable Monitoring** — Covers millions of hectares with minimal cost.
-* **Deep Learning Excellence** — ResNet-101's 101-layer architecture provides superior feature extraction for complex satellite imagery.
+* **Automated ESG Insights** — Enables supply chain monitoring with verifiable land-use classification.
+* **Early Detection of Environmental Risk** — Flags changes such as deforestation or urban encroachment.
+* **Scalable Monitoring** — Covers large geographic areas with minimal manual effort.
+* **Reliable Analysis** — While the model achieves \~82% accuracy, it provides actionable intelligence suitable for decision-making and further human review.
+* **Deep Learning Framework** — Leverages ResNet-101 for robust feature extraction from satellite imagery.
 
 ---
 
@@ -183,14 +190,10 @@ This system provides:
 
 ## 8. Getting Started
 
-## Dataset Download
+### Dataset Download
 
-**Download the EuroSAT Dataset**
-
-The RGB version of the dataset is available from multiple sources. We recommend the version hosted on Kaggle for ease of use:
+The RGB version of EuroSAT dataset is available on Kaggle:
 [Kaggle: EuroSAT Dataset](https://www.kaggle.com/datasets/raoofnaushad/eurosat-sentinel2-dataset)
-
-## Getting Started
 
 ### Prerequisites
 
@@ -286,11 +289,11 @@ This project is licensed under the [Apache 2.0 License](LICENSE).
 * [Microsoft ResNet-101](https://huggingface.co/microsoft/resnet-101) for architectural inspiration
 * PyTorch team for the deep learning framework
 * Sentinel-2 open satellite data
-* This work is built upon the foundational **EuroSAT dataset** provided by:
-    > P. Helber, B. Bischke, A. Dengel, D. Borth, "EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification," in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, vol. 12, no. 7, pp. 2217-2226, July 2019.
 
-* Our ResNet-101 implementation draws inspiration from the original ResNet paper:
-    > K. He, X. Zhang, S. Ren, and J. Sun, "Deep residual learning for image recognition," in Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 770-778, 2016.
+This work builds upon:
 
-* Our methodology is informed by recent advancements in data augmentation for satellite imagery, as explored in:
-    > O. Adedeji, P. Owoade, O. Ajayi, O. Arowolo, "Image Augmentation for Satellite Images," arXiv preprint arXiv:2207.14580, 2022.
+> P. Helber, B. Bischke, A. Dengel, D. Borth, "EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification," IEEE JSTARS, vol. 12, no. 7, pp. 2217-2226, July 2019.
+
+> K. He, X. Zhang, S. Ren, and J. Sun, "Deep residual learning for image recognition," CVPR, 2016.
+
+> O. Adedeji, P. Owoade, O. Ajayi, O. Arowolo, "Image Augmentation for Satellite Images," arXiv:2207.14580, 2022.
