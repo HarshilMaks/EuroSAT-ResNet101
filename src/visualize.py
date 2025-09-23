@@ -178,7 +178,7 @@ def plot_confusion_matrix(model, loader, save_path="assets/eurosat_rgb_confusion
     
     # Print accuracy
     accuracy = np.trace(cm) / np.sum(cm)
-    print(f"Overall Accuracy: {accuracy:.4f}")
+    print(f"Overall Accuracy: {accuracy:.1%}")
     
     return cm
 
@@ -202,7 +202,7 @@ def load_trained_model(model_path, num_classes=10):
         if isinstance(checkpoint, dict) and "model_state_dict" in checkpoint:
             state_dict = checkpoint["model_state_dict"]
             print(f"Loaded checkpoint from epoch {checkpoint.get('epoch', 'unknown')}")
-            print(f"Best validation accuracy: {checkpoint.get('val_acc', 'unknown'):.4f}")
+            print(f"Best validation accuracy: {checkpoint.get('val_acc', 'unknown'):.1%}")
         else:
             state_dict = checkpoint
             print("Loaded state dict directly")
@@ -229,7 +229,7 @@ def compute_class_accuracy(cm, class_names):
     print("\nPer-class Accuracy:")
     print("-" * 30)
     for i, (name, acc) in enumerate(zip(class_names, class_acc)):
-        print(f"{name:20s}: {acc:.4f}")
+        print(f"{name:20s}: {acc:.1%}")
 
 def main():
     """Main evaluation and visualization function."""
