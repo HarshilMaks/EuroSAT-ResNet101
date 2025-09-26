@@ -184,7 +184,7 @@ def train_phase(
     lr: float,
     phase_name: str,
     device: torch.device,
-    save_path: str = "artifacts/best_model.pth",
+    save_path: str, #
     use_amp: bool = True,
     warmup_epochs: int = 3,
     tb_writer: Optional[SummaryWriter] = None,

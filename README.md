@@ -8,7 +8,7 @@
 	<img src="https://img.shields.io/badge/Language-Python-blue.svg?style=flat&color=0062ff" alt="language">
 	<img src="https://img.shields.io/badge/Status-Active-green.svg?style=flat&color=0062ff" alt="status">
 	<img src="https://img.shields.io/badge/Framework-PyTorch-red.svg?style=flat&color=0062ff" alt="framework">
-	<img src="https://img.shields.io/badge/Validation%20Accuracy-82.4%25-brightgreen.svg?style=flat" alt="accuracy">
+	<img src="https://img.shields.io/badge/Overall%20Accuracy-82.3%25-brightgreen.svg?style=flat" alt="accuracy">
 </p>
 
 <p align="center">Built with:</p>
@@ -25,6 +25,7 @@
 
 ## Quick Links
 
+- [Quick Links](#quick-links)
 - [1. Business Problem: Opaque Supply Chains and ESG Pressure](#1-business-problem-opaque-supply-chains-and-esg-pressure)
 - [2. Enterprise Workflow](#2-enterprise-workflow)
 - [3. Technical Architecture](#3-technical-architecture)
@@ -100,20 +101,16 @@ graph TD
 ## 4. Experiments & Evaluation
 
 * **Training Setup**:
-
-  * Optimizer: Adam (lr=1e-3, weight\_decay=1e-4)
-  * Batch Size: 32
-  * Epochs: 20
-  * Architecture: ResNet-101 with custom classifier (dropout=0.2, hidden\_size=512)
-
+    * Optimizer: AdamW
+    * Batch Size: 32
+    * Total Epochs: 50 (15 + 20 + 15 in 3 phases)
+    * Architecture: ResNet-101 with custom classifier (dropout=0.3, hidden_size=1024)
 * **Results**:
-
-  * Validation Accuracy: **\~82.4%**
-  * F1 Score: **\~0.82**
-  * Model Size: \~44.5M parameters (only \~5K trainable with frozen backbone)
+    * Overall Accuracy: **82.3%**
+    * Model Size: ~44.6M parameters (fully trainable in the final phase)
 
 * **Analysis**:
-  The ResNet-101 model demonstrates solid performance through deep residual learning. The confusion matrix shows good separation across all 10 EuroSAT categories, with strongest accuracy on agricultural and urban land use classes. Misclassifications mainly occur in visually similar categories such as pasture vs. herbaceous vegetation, which is expected given the complexity of satellite imagery.
+  The model achieves a solid 82.3% overall accuracy. It performs exceptionally well on distinct classes like Residential (98.9%), SeaLake (98.9%), and Industrial (94.6%). As shown in the per-class results, the primary challenge lies in distinguishing between spectrally similar vegetation types, with lower accuracy in HerbaceousVegetation (57.9%) and Highway (61.4%), which can often be confused with surrounding green areas or pasture. This suggests that future work could focus on advanced augmentation or attention mechanisms to better differentiate these challenging categories.
 
 ---
 

@@ -47,7 +47,9 @@ def get_data_loader(data, batch_size=32, shuffle=False):
     return dataset, loader
 
 def denormalize_image(tensor):
+    
     """Denormalize image tensor for visualization."""
+    
     # ImageNet normalization stats
     mean = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
     std = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
@@ -60,7 +62,9 @@ def denormalize_image(tensor):
     return tensor.permute(1, 2, 0).numpy()
 
 def visualize_dataset_samples(dataset, save_path="assets/eurosat_rgb_preview.png", n=16):
+    
     """Visualize random samples from the dataset."""
+    
     os.makedirs("assets", exist_ok=True)
     
     # Randomly sample indices
@@ -93,7 +97,9 @@ def visualize_dataset_samples(dataset, save_path="assets/eurosat_rgb_preview.png
     print(f"Saved dataset preview to {save_path}")
 
 def visualize_predictions(model, dataset, save_path="assets/eurosat_rgb_predictions.png", n=9):
+    
     """Visualize model predictions on random samples."""
+    
     os.makedirs("assets", exist_ok=True)
     
     model.eval()
@@ -139,7 +145,9 @@ def visualize_predictions(model, dataset, save_path="assets/eurosat_rgb_predicti
     print(f"Saved sample predictions to {save_path}")
 
 def plot_confusion_matrix(model, loader, save_path="assets/eurosat_rgb_confusion_matrix.png"):
+    
     """Generate and plot confusion matrix."""
+    
     model.eval()
     all_preds = []
     all_labels = []
@@ -183,14 +191,16 @@ def plot_confusion_matrix(model, loader, save_path="assets/eurosat_rgb_confusion
     return cm
 
 def load_trained_model(model_path, num_classes=10):
+    
     """Load trained ResNet-101 model from checkpoint."""
+    
     print(f"Loading model from {model_path}")
     
     # Create model architecture
     model = get_resnet101(
         num_classes=num_classes, 
         dropout_rate=0.2, 
-        hidden_size=512,
+        hidden_size=1024,
         freeze_backbone=False
     )
     
@@ -223,7 +233,9 @@ def load_trained_model(model_path, num_classes=10):
         return None
 
 def compute_class_accuracy(cm, class_names):
+    
     """Compute per-class accuracy from confusion matrix."""
+    
     class_acc = cm.diagonal() / cm.sum(axis=1)
     
     print("\nPer-class Accuracy:")
@@ -232,12 +244,14 @@ def compute_class_accuracy(cm, class_names):
         print(f"{name:20s}: {acc:.1%}")
 
 def main():
+    
     """Main evaluation and visualization function."""
+    
     print("Starting visualization and evaluation...")
     
     # Configuration
     data_dir = "data/processed"
-    model_path = "artifacts/best_model.pth"
+    model_path = "artifacts/final_model.pth"
     num_classes = 10
     batch_size = 32
     
