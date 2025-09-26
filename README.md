@@ -1,73 +1,41 @@
 <h1 align="center">EUROSAT-ResNet101</h1>
-
 <p align="center">
-
 <em>Geo-AI Engine for ESG & Supply Chain Monitoring using ResNet-101 on EuroSAT</em>
-
 </p>
-
 <p align="center">
-
 <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat&logo=opensourceinitiative&logoColor=white&color=0062ff" alt="license">
-
 <img src="https://img.shields.io/badge/Language-Python-blue.svg?style=flat&color=0062ff" alt="language">
-
 <img src="https://img.shields.io/badge/Status-Active-green.svg?style=flat&color=0062ff" alt="status">
-
 <img src="https://img.shields.io/badge/Framework-PyTorch-red.svg?style=flat&color=0062ff" alt="framework">
-
 <img src="https://img.shields.io/badge/Overall%20Accuracy-82.35%25-brightgreen.svg?style=flat" alt="accuracy">
-
 </p>
-
 <p align="center">Built with:</p>
-
 <p align="center">
-
 <img src="https://img.shields.io/badge/Python-3776AB.svg?style=flat&logo=Python&logoColor=white" alt="Python">
-
 <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white" alt="PyTorch">
-
 <img src="https://img.shields.io/badge/NumPy-013243.svg?style=flat&logo=NumPy&logoColor=white" alt="NumPy">
-
 <img src="https://img.shields.io/badge/pandas-150458.svg?style=flat&logo=pandas&logoColor=white" alt="pandas">
-
 <img src="https://img.shields.io/badge/scikitlearn-F7931E.svg?style=flat&logo=scikit-learn&logoColor=white" alt="scikitlearn">
-
 <img src="https://img.shields.io/badge/Docker-2496ED.svg?style=flat&logo=Docker&logoColor=white" alt="Docker">
-
 </p>
 
 Quick Links
 -----------
-
 -   [1\. Business Problem](https://www.google.com/search?q=%231-business-problem-opaque-supply-chains-and-esg-pressure "null")
-
 -   [2\. Enterprise Workflow](https://www.google.com/search?q=%232-enterprise-workflow "null")
-
 -   [3\. Technical Architecture](https://www.google.com/search?q=%233-technical-architecture "null")
-
 -   [4\. Experiments & Evaluation](https://www.google.com/search?q=%234-experiments--evaluation "null")
-
 -   [5\. Business Value](https://www.google.com/search?q=%235-business-value "null")
-
 -   [6\. Use Cases](https://www.google.com/search?q=%236-use-cases "null")
-
 -   [7\. Project Structure](https://www.google.com/search?q=%237-project-structure "null")
-
 -   [8\. Getting Started](https://www.google.com/search?q=%238-getting-started "null")
-
 -   [9\. Project Roadmap](https://www.google.com/search?q=%239-project-roadmap "null")
-
 -   [10\. Contributing](https://www.google.com/search?q=%2310-contributing "null")
-
 -   [11\. License](https://www.google.com/search?q=%2311-license "null")
-
 -   [12\. Acknowledgments](https://www.google.com/search?q=%2312-acknowledgments "null")
 
 1\. Business Problem: Opaque Supply Chains and ESG Pressure
 -----------------------------------------------------------
-
 Enterprises today operate in a landscape of growing environmental and regulatory risk:
 
 -   **Regulatory Compliance** --- Regulations such as the EU Deforestation Regulation require proof that imports (soy, palm oil, coffee, etc.) are not linked to deforestation.
@@ -80,10 +48,7 @@ Manual monitoring is not scalable. This project demonstrates a **Geo-AI engine**
 
 2\. Enterprise Workflow
 -----------------------
-
-<details>
-
-<summary>View Enterprise Workflow (Mermaid Diagram)</summary>
+<details><summary>View Enterprise Workflow (Mermaid Diagram)</summary>
 
 ```
 graph TD
@@ -97,19 +62,13 @@ graph TD
     G --> I["Compliance & ESG Reports"]
 
 ```
-
 </details>
 
 3\. Technical Architecture
 --------------------------
-
 <p align="center">
-
 <img src="assets/Images/resnet_architecture.png" width="600">
-
-<em>ResNet-101 Architecture - Deep Residual Learning for Image Recognition</em>
-
-</p>
+<em>ResNet-101 Architecture - Deep Residual Learning for Image Recognition</em></p>
 
 -   **Model**: ResNet-101 (custom implementation from scratch, inspired by [Microsoft's ResNet-101](https://huggingface.co/microsoft/resnet-101 "null")).
 
@@ -120,37 +79,26 @@ graph TD
 -   **Pipeline**:
 
     -   Data ingestion (Sentinel-2)
-
     -   Preprocessing (resizing, normalization)
-
     -   Augmentation (random crops, flips, rotations)
-
     -   Training (PyTorch from scratch implementation)
-
     -   Evaluation (confusion matrix, accuracy, F1-score)
 
 4\. Experiments & Evaluation
 ----------------------------
-
 -   **Training Setup**:
-
+-   
     -   Optimizer: AdamW
-
     -   Batch Size: 32
-
     -   Total Epochs: 50 (15 + 20 + 15 in 3 phases)
-
     -   Architecture: ResNet-101 with custom classifier (dropout=0.3, hidden_size=1024)
 
 -   **Results**:
-
     -   Overall Accuracy: **82.35%**
-
     -   Weighted Avg F1-Score: **0.820**
-
     -   Model Size: ~44.6M parameters (fully trainable in the final phase)
-
--   Analysis:
+    -   
+-   **Analysis**:
 
     The model achieves a solid 82.35% overall accuracy and a weighted F1-score of 0.820. Performance is exceptionally strong for classes with distinct visual features, such as SeaLake (F1: 0.956), Industrial (F1: 0.932), and Residential (F1: 0.924), all of which benefit from high precision and recall.
 
@@ -170,7 +118,6 @@ graph TD
 
 5\. Business Value
 ------------------
-
 -   **Automated ESG Insights** --- Verifiable land-use classification for supply chain monitoring.
 
 -   **Early Risk Detection** --- Timely alerts for deforestation, flooding, or encroachment.
@@ -181,17 +128,11 @@ graph TD
 
 6\. Use Cases
 -------------
-
 -   Deforestation detection in palm oil or coffee supply chains.
-
 -   Flood monitoring for insurers and governments.
-
 -   ESG risk analysis for investment funds.
-
 -   Urban sprawl detection for smart city planning.
-
 -   Agricultural land classification for yield prediction.
-
 -   Multi-temporal change detection using deep residual features.
 
 7\. Project Structure
@@ -218,7 +159,6 @@ graph TD
 
 8\. Getting Started
 -------------------
-
 ### Dataset Download
 
 The RGB version of EuroSAT dataset is available on Kaggle:
@@ -228,11 +168,8 @@ EuroSAT RGB Dataset on Kaggle
 ### Prerequisites
 
 -   Python 3.8+
-
 -   PyTorch 1.9+
-
 -   CUDA-compatible GPU (recommended)
-
 -   8GB+ RAM
 
 ### Installation
@@ -243,35 +180,26 @@ Clone the repository and install dependencies:
 git clone [https://github.com/HarshilMaks/EuroSAT-ResNet101.git](https://github.com/HarshilMaks/EuroSAT-ResNet101.git)
 cd EuroSAT-ResNet101
 pip install -r requirements.txt
-
 ```
-
 Using Docker:
-
 ```
 docker build -t eurosat-resnet101 .
-
 ```
 
 ### Usage
 
 Run the main application:
-
 ```
 python src/main.py
-
 ```
-
 Train the ResNet-101 model:
-
 ```
 python src/train.py
-
 ```
 
 Using Docker:
-
 ```
+
 docker run -it --gpus all\
   -v "$(pwd)/data:/app/data"\
   -v "$(pwd)/artifacts:/app/artifacts"\
@@ -286,31 +214,21 @@ Run tests to verify the setup:
 
 ```
 pytest
-
 ```
 
 9\. Project Roadmap
 -------------------
-
 -   [x] Data ingestion pipeline
-
 -   [x] ResNet-101 from scratch implementation
-
 -   [x] Training & evaluation pipeline
-
 -   [ ] Multi-temporal change detection with ResNet-101
-
 -   [ ] Real-time inference API (FastAPI backend)
-
 -   [ ] Dashboard integration for ESG reporting
-
 -   [ ] Model optimization and quantization
-
 -   [ ] Transfer learning experiments
 
 10\. Contributing
 -----------------
-
 -   [Join Discussions](https://github.com/HarshilMaks/EuroSAT-ResNet101/discussions "null")
 
 -   [Report Issues](https://github.com/HarshilMaks/EuroSAT-ResNet101/issues "null")
@@ -318,37 +236,26 @@ pytest
 -   [Submit Pull Requests](https://github.com/HarshilMaks/EuroSAT-ResNet101/pulls "null")
 
 Steps:
-
 1.  Fork repo
-
 2.  Clone locally
-
 3.  Create feature branch
-
 4.  Commit & push
-
 5.  Open PR
 
 11\. License
 ------------
-
 This project is licensed under the [Apache 2.0 License](https://www.google.com/search?q=LICENSE "null").
 
 12\. Acknowledgments
 --------------------
-
 -   [EuroSAT Dataset](https://github.com/phelber/EuroSAT "null")
-
 -   [Microsoft ResNet-101](https://huggingface.co/microsoft/resnet-101 "null") for architectural inspiration
-
 -   PyTorch team for the deep learning framework
-
 -   Sentinel-2 open satellite data
 
 This work builds upon:
-
 > P. Helber, B. Bischke, A. Dengel, D. Borth, "EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification," IEEE JSTARS, vol. 12, no. 7, pp. 2217-2226, July 2019.
-
+> 
 > K. He, X. Zhang, S. Ren, and J. Sun, "Deep residual learning for image recognition," CVPR, 2016.
 
 > O. Adedeji, P. Owoade, O. Ajayi, O. Arowolo, "Image Augmentation for Satellite Images," arXiv:2207.14580, 2022.
