@@ -11,32 +11,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from src.model import get_resnet101, get_model_info
+from src.utils import CLASS_NAMES, load_processed_data, denormalize_image, safe_device
 from PIL import Image
 
 # Device setup
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Using device: {device}")
-
-# EuroSAT class names for better visualization
-CLASS_NAMES = [
-    'AnnualCrop', 'Forest', 'HerbaceousVegetation', 'Highway', 'Industrial',
-    'Pasture', 'PermanentCrop', 'Residential', 'River', 'SeaLake'
-]
-
-def load_processed_data(data_dir="data/processed"):
-    """Load processed tensor data from .pt files."""
-    try:
-        train_data = torch.load(os.path.join(data_dir, "train.pt"))
-        val_data = torch.load(os.path.join(data_dir, "val.pt"))
-        
-        print(f"Train data shape: {train_data['images'].shape}")
-        print(f"Val data shape: {val_data['images'].shape}")
-        
-        return train_data, val_data
-    except FileNotFoundError as e:
-        print(f"Error loading processed data: {e}")
-        print("Make sure you have run the preprocessing script first.")
-        return None, None
+device = safe_device()
 
 def get_data_loader(data, batch_size=32, shuffle=False):
     """Create DataLoader from processed tensor data."""
@@ -45,21 +24,6 @@ def get_data_loader(data, batch_size=32, shuffle=False):
     dataset = TensorDataset(images, labels)
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
     return dataset, loader
-
-def denormalize_image(tensor):
-    
-    """Denormalize image tensor for visualization."""
-    
-    # ImageNet normalization stats
-    mean = torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
-    std = torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
-    
-    # Denormalize
-    tensor = tensor * std + mean
-    tensor = torch.clamp(tensor, 0, 1)
-    
-    # Convert to numpy and transpose for matplotlib
-    return tensor.permute(1, 2, 0).numpy()
 
 def visualize_dataset_samples(dataset, save_path="assets/eurosat_rgb_preview.png", n=16):
     
@@ -256,7 +220,7 @@ def main():
     batch_size = 32
     
     # Load data
-    print("Loading processed data...")
+    print("\nLoading processed data...")
     train_data, val_data = load_processed_data(data_dir)
     if train_data is None or val_data is None:
         return

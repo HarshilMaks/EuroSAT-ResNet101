@@ -4,6 +4,7 @@ from torch.utils.data import Dataset, DataLoader, random_split
 from PIL import Image
 import torch
 import os
+from src.utils import IMAGENET_STATS
 
 class EuroSATDataset(Dataset):
     def __init__(self, hf_dataset, transform=None):
@@ -33,8 +34,8 @@ class GetDataLoaders(DataLoader):
         transform = transforms.Compose([
             transforms.Resize((224, 224)),  # ResNet101 input size
             transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                std=[0.229, 0.224, 0.225])  # Standard ResNet normalization
+            transforms.Normalize(mean=IMAGENET_STATS["mean"],
+                                std=IMAGENET_STATS["std"])  # Standard ResNet normalization
         ])
 
         # Create PyTorch Dataset

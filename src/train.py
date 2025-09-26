@@ -13,7 +13,8 @@ from tqdm import tqdm
 import torchvision.transforms as transforms  # type: ignore[import-not-found]
 
 # project imports (assumes model.py exposes get_resnet101, get_model_info)
-from model import get_resnet101, get_model_info
+from src.model import get_resnet101, get_model_info
+from src.utils import set_seed, safe_device
 
 # Optional imports
 try:
@@ -57,15 +58,6 @@ def parse_args():
     p.add_argument("--seed", type=int, default=42)
     return p.parse_args()
 
-# ---------------------------
-# Utilities
-# ---------------------------
-def set_seed(seed: int) -> None:
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-
-def safe_device() -> torch.device:
-    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # ---------------------------
 # Preprocessing / Dataset wrappers
@@ -184,7 +176,7 @@ def train_phase(
     lr: float,
     phase_name: str,
     device: torch.device,
-    save_path: str, #
+    save_path: str,
     use_amp: bool = True,
     warmup_epochs: int = 3,
     tb_writer: Optional[SummaryWriter] = None,
@@ -378,7 +370,6 @@ def main() -> Dict[str, Dict[str, Any]]:
     args = parse_args()
     set_seed(args.seed)
     device = safe_device()
-    print(f"Using device: {device}")
     os.makedirs("artifacts", exist_ok=True)
 
     # load data
