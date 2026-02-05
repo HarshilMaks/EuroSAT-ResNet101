@@ -10,8 +10,8 @@ import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-from src.model import get_resnet101, get_model_info
-from src.utils import CLASS_NAMES, load_processed_data, denormalize_image, safe_device
+from src.models.model import get_resnet101, get_model_info
+from src.utils.helpers import CLASS_NAMES, load_processed_data, denormalize_image, safe_device
 from PIL import Image
 
 # Device setup

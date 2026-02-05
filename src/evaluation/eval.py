@@ -20,8 +20,8 @@ from torch.utils.data import DataLoader, TensorDataset
 # Add project root to path to allow direct script execution
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.model import get_resnet101, get_model_info
-from src.utils import CLASS_NAMES, load_processed_data, safe_device
+from src.models.model import get_resnet101, get_model_info
+from src.utils.helpers import CLASS_NAMES, load_processed_data, safe_device
 
 def parse_args():
     """Parse command-line arguments for the evaluation script."""

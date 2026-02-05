@@ -43,6 +43,8 @@
 - [11. License](#11-license)
 - [12. Acknowledgments](#12-acknowledgments)
 
+> **Current Status:** ✅ **ResNet-101 model training & evaluation pipeline is fully functional.** The backend API layer (`/backend`) is not yet implemented but will be added in future iterations. See [Project Roadmap](#9-project-roadmap) for upcoming features.
+
 ## 1. Business Problem: Opaque Supply Chains and ESG Pressure
 Enterprises today operate in a landscape of growing environmental and regulatory risk:
 
@@ -132,17 +134,44 @@ graph TD
     ├── Dockerfile
     ├── LICENSE
     ├── README.md
+    ├── Makefile
+    ├── requirements.txt
     ├── notebooks/
     │   └── exploration.ipynb
-    ├── requirements.txt
+    ├── assets/
+    │   └── Images/
+    ├── backend/
+    │   ├── app/
+    │   │   ├── __init__.py
+    │   │   ├── main.py
+    │   │   ├── core/
+    │   │   │   ├── __init__.py
+    │   │   │   └── config.py
+    │   │   ├── routes/
+    │   │   │   └── __init__.py
+    │   │   └── utils/
+    │   │       ├── __init__.py
+    │   │       └── helpers.py
     └── src/
-        ├── dataset.py
-        ├── eval.py
+        ├── __init__.py
         ├── main.py
-        ├── model.py
-        ├── preprocess.py
-        ├── train.py
-        └── utils.py
+        ├── data/
+        │   ├── __init__.py
+        │   ├── dataset.py
+        │   └── preprocess.py
+        ├── models/
+        │   ├── __init__.py
+        │   └── model.py
+        ├── training/
+        │   ├── __init__.py
+        │   └── train.py
+        ├── evaluation/
+        │   ├── __init__.py
+        │   ├── eval.py
+        │   └── visualize.py
+        └── utils/
+            ├── __init__.py
+            └── helpers.py
 ```
 
 ## 8. Getting Started
@@ -157,11 +186,11 @@ The RGB version of EuroSAT dataset is available on Kaggle:
 *   8GB+ RAM
 
 ### Installation
-Clone the repository and install dependencies:
+Clone the repository and install dependencies using `uv`:
 ```bash
 git clone https://github.com/HarshilMaks/EuroSAT-ResNet101.git
 cd EuroSAT-ResNet101
-pip install -r requirements.txt
+uv sync
 ```
 Using Docker:
 ```bash

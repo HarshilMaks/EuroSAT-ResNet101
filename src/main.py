@@ -1,6 +1,6 @@
 from datasets import Dataset
-from model import get_resnet101
-from preprocess import EuroSATDataset, GetDataLoaders
+from src.models.model import get_resnet101
+from src.data.preprocess import EuroSATDataset, GetDataLoaders
 from torchvision.models import ResNet101_Weights
 
 def main():

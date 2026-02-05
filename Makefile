@@ -6,41 +6,39 @@
 # ====================================================================================
 
 # --- Variables ---
-# Use the Python interpreter from the virtual environment
-PYTHON = .venv/bin/python
-PIP = .venv/bin/pip
+# Use the Python interpreter from uv managed environment
+PYTHON = python
 IMAGE_NAME = eurosat-resnet101
 
 # --- Setup and Installation ---
 .PHONY: setup
-setup: ## Set up the Python virtual environment and install dependencies
-	@echo "--> Setting up Python virtual environment in .venv..."
-	python3 -m venv .venv
-	@echo "--> Installing dependencies from requirements.txt..."
-	$(PIP) install --upgrade pip
-	$(PIP) install -r requirements.txt
-	@echo "--> Setup complete. Activate with 'source .venv/bin/activate'"
+setup: ## Set up Python dependencies using uv
+	@echo "--> Installing uv package manager..."
+	pip install uv
+	@echo "--> Syncing dependencies with uv..."
+	uv sync
+	@echo "--> Setup complete. Run commands with 'uv run <command>' or activate with 'source .venv/bin/activate'"
 
 # --- Core ML Pipeline ---
 .PHONY: preprocess
 preprocess: ## Preprocess the raw EuroSAT dataset into tensors
 	@echo "--> Running data preprocessing script..."
-	$(PYTHON) src/preprocess.py
+	uv run $(PYTHON) src/data/preprocess.py
 
 .PHONY: train
 train: ## Train the ResNet-101 model on the processed data
 	@echo "--> Starting model training..."
-	$(PYTHON) src/train.py
+	uv run $(PYTHON) src/training/train.py
 
 .PHONY: evaluate
 evaluate: ## Evaluate the trained model and print performance metrics
 	@echo "--> Evaluating model performance..."
-	$(PYTHON) src/eval.py
+	uv run $(PYTHON) src/evaluation/eval.py
 
 .PHONY: visualize
 visualize: ## Generate prediction visualizations and confusion matrix
 	@echo "--> Generating visualizations..."
-	$(PYTHON) src/visualize.py
+	uv run $(PYTHON) src/evaluation/visualize.py
 
 .PHONY: all
 all: preprocess train evaluate visualize ## 🏃 Run the entire pipeline: preprocess, train, evaluate, and visualize

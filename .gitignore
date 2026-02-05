@@ -273,3 +273,4 @@ results/
 # Local development
 local_config.py
 local_settings.py
+.qodo

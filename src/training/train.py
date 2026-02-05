@@ -13,8 +13,8 @@ from tqdm import tqdm
 import torchvision.transforms as transforms  # type: ignore[import-not-found]
 
 # project imports (assumes model.py exposes get_resnet101, get_model_info)
-from src.model import get_resnet101, get_model_info
-from src.utils import set_seed, safe_device
+from src.models.model import get_resnet101, get_model_info
+from src.utils.helpers import set_seed, safe_device
 
 # Optional imports
 try:

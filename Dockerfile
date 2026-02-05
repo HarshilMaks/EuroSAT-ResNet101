@@ -39,12 +39,14 @@ RUN apt-get update && apt-get install -y \
 # Copy and install Python requirements first to leverage Docker's layer caching.
 # This layer will only be rebuilt if the requirements.txt file changes.
 # =================================================================================================
-# Copy only the requirements file to cache this layer
+# Install uv package manager
+RUN pip install --no-cache-dir uv
+
+# Copy the requirements file
 COPY requirements.txt .
 
-# Install the Python packages
-RUN pip install --no-cache-dir --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+# Install the Python packages using uv
+RUN uv pip install -r requirements.txt
 
 # =================================================================================================
 # Copy Project Source Code

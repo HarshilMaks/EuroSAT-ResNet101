@@ -4,7 +4,7 @@ from torch.utils.data import Dataset, DataLoader, random_split
 from PIL import Image
 import torch
 import os
-from src.utils import IMAGENET_STATS
+from src.utils.helpers import IMAGENET_STATS
 
 class EuroSATDataset(Dataset):
     def __init__(self, hf_dataset, transform=None):
